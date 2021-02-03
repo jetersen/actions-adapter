@@ -15,7 +15,7 @@ function createProbot({
   return probotCreate({ overrides, defaults, env })
 }
 
-async function runProbot (handlers, { probot = createProbot }) {
+async function runProbot (...handlers, { probot = createProbot }) {
   await probot.load(handlers);
 
   // Process the event
