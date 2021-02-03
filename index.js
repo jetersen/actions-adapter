@@ -9,7 +9,7 @@ const { createProbot: probotCreate } = require('probot');
 function createProbot({
   overrides = {},
   defaults = {},
-  env = process.env,
+  env = process.env
 }) {
   overrides.githubToken = process.env.GITHUB_TOKEN;
   return probotCreate({ overrides, defaults, env })
