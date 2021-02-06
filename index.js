@@ -6,16 +6,16 @@ const core = require('@actions/core');
 
 const { createProbot: probotCreate } = require('probot');
 
-function createProbot({
+function createProbot(
   overrides = {},
   defaults = {},
-  env = process.env,
-}) {
+  env = process.env
+) {
   overrides.githubToken = process.env.GITHUB_TOKEN;
-  return probotCreate({ overrides, defaults, env })
+  return probotCreate({ overrides, defaults, env });
 }
 
-async function runProbot (...handlers, { probot = createProbot }) {
+async function runProbot (handlers, { probot = createProbot }) {
   await probot.load(handlers);
 
   // Process the event
